@@ -25,6 +25,8 @@ dependencies:
   cupertino_icons: ^0.1.2
   flutter_screenutil: ^0.5.2
   flutter_secure_storage:
+  bottom_navy_bar:
+
 
 dev_dependencies:
   flutter_test:
@@ -64,17 +66,12 @@ flutter:
   # "family" key with the font family name, and a "fonts" key with a
   # list giving the asset and other descriptors for the font. For
   # example:
-  # fonts:
-  #   - family: Schyler
-  #     fonts:
-  #       - asset: fonts/Schyler-Regular.ttf
-  #       - asset: fonts/Schyler-Italic.ttf
-  #         style: italic
-  #   - family: Trajan Pro
-  #     fonts:
-  #       - asset: fonts/TrajanPro.ttf
-  #       - asset: fonts/TrajanPro_Bold.ttf
-  #         weight: 700
-  #
+
+  fonts:
+    - family: Exo2
+      fonts:
+        - asset: fonts/Exo2_Medium.ttf
+          weight: 800
+
   # For details regarding fonts from package dependencies,
   # see https://flutter.dev/custom-fonts/#from-packages

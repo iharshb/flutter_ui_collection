@@ -1,11 +1,8 @@
 import 'package:flutter/material.dart';
-import 'ui/page_login.dart';
-import 'ui/page_forgotpass.dart';
-
+import 'ui/page_dashboard.dart';
 void main() => runApp(MyApp());
 
 class MyApp extends StatelessWidget {
-  // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -29,7 +26,7 @@ class CollectionApp extends StatelessWidget {
         theme: ThemeData(
           primaryColor: Theme.of(context).primaryColor,
         ),
-        home: LoginPage()
+        home: CustomPaintDemo()
     );
   }
 }
