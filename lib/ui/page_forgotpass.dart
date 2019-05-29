@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_ui_collections/widgets/widgets.dart';
 import 'package:flutter_ui_collections/utils/utils.dart';
 
-
 class PageForgotPassword extends StatefulWidget {
   @override
   _PageForgotPasswordState createState() => _PageForgotPasswordState();
@@ -18,63 +17,56 @@ class _PageForgotPasswordState extends State<PageForgotPassword> {
 
   @override
   Widget build(BuildContext context) {
-    size = Screen(MediaQuery
-        .of(context)
-        .size);
+    size = Screen(MediaQuery.of(context).size);
 
     return SafeArea(
       top: true,
       child: Scaffold(
-
-          body: Stack(
-              children: <Widget>[
-
-                CustomPaint(
-                  child: Container(),
-                  painter: BottomCurvePainter(),
+          backgroundColor: backgroundColor,
+          body: Stack(children: <Widget>[
+            CustomPaint(
+              child: Container(),
+              painter: BottomCurvePainter(),
+            ),
+            Padding(
+              padding: EdgeInsets.only(top: size.getWidthPx(20)),
+              child: IconButton(
+                icon: Icon(
+                  Icons.arrow_back,
+                  color: colorCurve,
                 ),
-
-                Padding(
-                  padding: EdgeInsets.only(top:size.getWidthPx(20)),
-                  child: IconButton(
-                    icon: Icon(Icons.arrow_back, color: colorCurve,),
-                    onPressed: () => Navigator.pop(context, false),
+                onPressed: () => Navigator.pop(context, false),
+              ),
+            ),
+            Container(
+                child: Center(
+              child: SingleChildScrollView(
+                child: Form(
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.spaceAround,
+                    children: <Widget>[
+                      _forgotGradientText(),
+                      SizedBox(height: size.getWidthPx(24)),
+                      Header(),
+                      _emailFeild(),
+                    ],
                   ),
                 ),
-
-
-                Container(
-                    child: Center(
-                      child: SingleChildScrollView(
-                        child: Form(
-                          child: Column(
-
-                            mainAxisAlignment: MainAxisAlignment.spaceAround,
-                            children: <Widget>[
-                              _forgotGradientText(),
-                              SizedBox(height: size.getWidthPx(24)),
-                              Header(),
-                              _emailFeild(),
-                            ],
-                          ),
-                        ),
-                      ),
-                    ))
-              ])),
+              ),
+            ))
+          ])),
     );
   }
 
-
-  Header() =>
-      Column(
+  Header() => Column(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: <Widget>[
-
           _passwordIconWidget(),
           SizedBox(height: size.getWidthPx(24)),
-
-          Text("Please fill your details below",
-            style: TextStyle(fontSize: 16.0, fontStyle: FontStyle.normal),),
+          Text(
+            "Please fill your details below",
+            style: TextStyle(fontSize: 16.0, fontStyle: FontStyle.normal),
+          ),
         ],
       );
 
@@ -97,7 +89,6 @@ class _PageForgotPasswordState extends State<PageForgotPassword> {
 
   BoxField _emailWidget() {
     return BoxField(
-
       hintText: "Enter email",
       lableText: "Email",
       obscureText: false,
@@ -108,19 +99,14 @@ class _PageForgotPasswordState extends State<PageForgotPassword> {
     );
   }
 
-  _emailFeild() =>
-      Column(
+  _emailFeild() => Column(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: <Widget>[
           _emailWidget(),
           SizedBox(height: size.getWidthPx(20)),
-
           _submitButtonWidget(),
-
-
         ],
       );
-
 
   Container _submitButtonWidget() {
     return Container(
@@ -156,7 +142,6 @@ class _PageForgotPasswordState extends State<PageForgotPassword> {
     return null;
   }
 
-
   void _validateInputs() {
     if (_formKey.currentState.validate()) {
 //    If all data are correct then save data to out variables
@@ -169,6 +154,4 @@ class _PageForgotPasswordState extends State<PageForgotPassword> {
       });
     }
   }
-
-
 }

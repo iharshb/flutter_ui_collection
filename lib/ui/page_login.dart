@@ -27,12 +27,13 @@ class _LoginPageState extends State<LoginPage> {
         .of(context)
         .size);
 
-    return SafeArea(
-
-      top: true,
-      child: Scaffold(
-          resizeToAvoidBottomInset: true,
-          body: Stack(
+    return Scaffold(
+        resizeToAvoidBottomInset: true,
+        backgroundColor: backgroundColor,
+        body: SafeArea(
+          top: true,
+          bottom: false,
+          child: Stack(
               fit: StackFit.expand,
               children: <Widget>[
 
@@ -57,8 +58,8 @@ class _LoginPageState extends State<LoginPage> {
                     ]),
               ),
             )
-          ])),
-    );
+          ]),
+        ));
   }
 
   RichText _textAccount() {
@@ -158,7 +159,7 @@ class _LoginPageState extends State<LoginPage> {
       onTap: onTap,
       child: CircleAvatar(
         maxRadius: size.getWidthPx(20),
-        backgroundColor: Colors.white,
+        backgroundColor: Colors.transparent,
         child: Image.asset(assetIcon),
       ),
     );

@@ -27,15 +27,17 @@ class _SignUpPageState extends State<SignUpPage> {
   Widget build(BuildContext context) {
     size = Screen(MediaQuery.of(context).size);
 
-    return SafeArea(
-      top: true,
-      child: Scaffold(
-          body: Stack(children: <Widget>[
-        CustomPaint(
-          child: Container(),
-          painter: BottomCurvePainter(),
-        ),
-        Container(
+    return Scaffold(
+        backgroundColor: backgroundColor,
+        body: Stack(children: <Widget>[
+      CustomPaint(
+        child: Container(),
+        painter: BottomCurvePainter(),
+      ),
+      SafeArea(
+        top: true,
+        bottom: false,
+        child: Container(
           margin: EdgeInsets.symmetric(
               horizontal: size.getWidthPx(20), vertical: size.getWidthPx(20)),
           child: Column(
@@ -56,9 +58,9 @@ class _SignUpPageState extends State<SignUpPage> {
                 SizedBox(height: size.getWidthPx(30)),
                 registerFields()
               ]),
-        )
-      ])),
-    );
+        ),
+      )
+    ]));
   }
 
   RichText _textAccount() {

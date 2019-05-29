@@ -25,8 +25,7 @@ dependencies:
   cupertino_icons: ^0.1.2
   flutter_screenutil: ^0.5.2
   flutter_secure_storage:
-  bottom_navy_bar:
-
+  flare_flutter:
 
 dev_dependencies:
   flutter_test:
@@ -46,14 +45,15 @@ flutter:
 
   # To add assets to your application, add an assets section, like this:
   assets:
-   - assets/onboard_blue_bg.png
-   - assets/onboard_green_bg.png
-   - assets/onboard_purple_bg.png
+   - assets/onboard_1.png
+   - assets/onboard_2.png
+   - assets/onboard_3.png
    - assets/icons/icnfb.png
    - assets/icons/icngmail.png
    - assets/icons/icn_twitter.png
    - assets/background_curve.png
    - assets/icons/imgforgot.png
+   - splashlogo/trophy.flr2d
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware.
@@ -68,10 +68,13 @@ flutter:
   # example:
 
   fonts:
+    - family: Exo2SemiBold
+      fonts:
+        - asset: fonts/Exo2-SemiBold.ttf
+          weight: 800
     - family: Exo2
       fonts:
-        - asset: fonts/Exo2_Medium.ttf
+        - asset: fonts/Exo2-Regular.ttf
           weight: 800
-
   # For details regarding fonts from package dependencies,
   # see https://flutter.dev/custom-fonts/#from-packages

@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_ui_collections/ui/page_login.dart';
 import 'package:flutter_ui_collections/utils/Constants.dart';
 import 'package:flutter_ui_collections/widgets/dots_indicator.dart';
-
+import 'package:flutter_ui_collections/utils/utils.dart';
 import '../LocalBindings.dart';
 import 'intro_page.dart';
 
@@ -16,10 +16,12 @@ class OnBoardingPage extends StatefulWidget {
 class _OnBoardingPageState extends State<OnBoardingPage> {
   final _controller = PageController();
   bool leadingVisibility = false;
+  Screen  size;
+  
   final List<Widget> _pages = [
-    IntroPage("assets/onboard_blue_bg.png", "Page 1"),
-    IntroPage("assets/onboard_green_bg.png", "Page 2"),
-    IntroPage("assets/onboard_purple_bg.png", "Page 3"),
+    IntroPage("assets/onboard_1.png","Activity", "View activity collected by your fitness trackers and your other mobile apps! \n \n Data has never been more beautiful or easier to understand!"),
+    IntroPage("assets/onboard_2.png","PhotoFIT", "A new kind of fittness tracking! \n \n 100% free, because great heath should be accessible to all!"),
+    IntroPage("assets/onboard_3.png","PhotoLAPSE", "Your progress photos are being put to good use! \n \n The photoLAPSE feature allows you to view your result over custom time periods!"),
   ];
   int currentPageIndex = 0;
 
@@ -30,30 +32,32 @@ class _OnBoardingPageState extends State<OnBoardingPage> {
 
   @override
   Widget build(BuildContext context) {
+    size = Screen(MediaQuery.of(context).size);
     bool isLastPage = currentPageIndex == _pages.length - 1;
     return Scaffold(
         backgroundColor: Colors.transparent,
         body: SafeArea(
-          top: true,
-          bottom: true,
+          top: false,
+          bottom: false,
           child: Stack(
             children: <Widget>[
               pageViewFillWidget(),
               appBarWithButton(isLastPage, context),
-              bottonDotsWidget()
+              bottomDotsWidget()
             ],
           ),
         ));
   }
 
-  Positioned bottonDotsWidget() {
+  Positioned bottomDotsWidget() {
     return Positioned(
-        bottom: 20.0,
+        bottom: size.getWidthPx(20),
         left: 0.0,
         right: 0.0,
         child: DotsIndicator(
           controller: _controller,
           itemCount: _pages.length,
+          color: colorCurve,
           onPageSelected: (int page) {
             _controller.animateToPage(
               page,
@@ -87,19 +91,19 @@ class _OnBoardingPageState extends State<OnBoardingPage> {
               )),
           actions: <Widget>[
             Padding(
-              padding:
-              const EdgeInsets.only(top: 16.0, right: 16.0, bottom: 8.0),
+              padding: EdgeInsets.only(top: size.getWidthPx(16), right:  size.getWidthPx(12), bottom: size.getWidthPx(12)),
               child: RaisedButton(
                 child: Text(
                   isLastPage ? 'DONE' : 'NEXT',
-                  style: TextStyle(color: Colors.blue),
+                  style: TextStyle(fontFamily: 'Exo2',fontWeight: FontWeight.w500,fontSize: 14,color: Colors.grey.shade700),
                 ),
                 onPressed: isLastPage
-                    ? () {
+                    ? () async{
                   // Last Page Done Click
-                  LocalStorage.sharedInstance.writeValue(key:Constants.isOnBoard,value: true);
 
-                  Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => LoginPage()),);
+                  LocalStorage.sharedInstance.writeValue(key:Constants.isOnBoard,value: "0");
+
+                  Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => LoginPage()));
 
                 }
                     : () {

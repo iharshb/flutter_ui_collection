@@ -1,6 +1,22 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
+import 'page_splash.dart';
 import 'ui/page_dashboard.dart';
-void main() => runApp(MyApp());
+import 'ui/page_login.dart';
+import 'ui/page_onboarding.dart';
+import 'utils/utils.dart';
+void main() {
+
+  SystemChrome.setSystemUIOverlayStyle(SystemUiOverlayStyle(
+    systemNavigationBarColor: backgroundColor, // navigation bar color
+    statusBarColor: backgroundColor, // status bar color
+  ));
+
+  SystemChrome.setEnabledSystemUIOverlays([SystemUiOverlay.bottom]);
+
+
+  runApp(MyApp());
+}
 
 class MyApp extends StatelessWidget {
   @override
@@ -19,14 +35,16 @@ class MyApp extends StatelessWidget {
 
 
 class CollectionApp extends StatelessWidget {
+
   @override
   Widget build(BuildContext context) {
+
     return MaterialApp(
         debugShowCheckedModeBanner: false,
         theme: ThemeData(
           primaryColor: Theme.of(context).primaryColor,
         ),
-        home: CustomPaintDemo()
+        home: SplashScreen()
     );
   }
 }
