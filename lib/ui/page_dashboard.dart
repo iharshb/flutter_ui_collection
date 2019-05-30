@@ -87,7 +87,7 @@ secondBAckgroundPath(Canvas canvas, Size size, Paint paint) {
   mainBGPath.quadraticBezierTo(
       size.width * .33, size.height * .3, 0, size.height / 1.5);
 
-  paint.color = colorDashboardCurve2;
+  paint.color = colorCurve;
   canvas.drawPath(mainBGPath, paint);
 }
 

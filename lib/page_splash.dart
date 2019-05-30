@@ -15,19 +15,24 @@ class _SplashScreenState extends State<SplashScreen> {
   @override
   void initState() {
     super.initState();
-    Timer(Duration(seconds: 2), () {
+    /*Timer(Duration(seconds: 2), () {
        navigateFromSplash();
-    });
+    });*/
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
         body: Center(
+        child: Container(
+          width: 300.0,
+          height: 300.0,
           child: FlareActor(
-            "splashlogo/trophy.flr2d",
-            animation: "Build and Fade Out",
-          ),
+              "assets/success_message.flr",
+             fit: BoxFit.contain,
+            animation: "Untitled",
+            ),
+        ),
         )
     );
   }

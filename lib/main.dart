@@ -4,6 +4,7 @@ import 'page_splash.dart';
 import 'ui/page_dashboard.dart';
 import 'ui/page_login.dart';
 import 'ui/page_onboarding.dart';
+import 'ui/page_settings.dart';
 import 'utils/utils.dart';
 void main() {
 
@@ -44,7 +45,7 @@ class CollectionApp extends StatelessWidget {
         theme: ThemeData(
           primaryColor: Theme.of(context).primaryColor,
         ),
-        home: SplashScreen()
+        home: SettingPage()
     );
   }
 }
