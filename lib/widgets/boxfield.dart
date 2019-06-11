@@ -103,7 +103,6 @@ class _BoxFieldState extends State<BoxField> {
   void dispose() {
     super.dispose();
     _focusNode.dispose();
-    widget.controller.dispose();
   }
 
   @override
@@ -118,16 +117,17 @@ class _BoxFieldState extends State<BoxField> {
         children: <Widget>[
           Expanded(
               child: Container(
-                margin: EdgeInsets.only(top: height / 400, bottom: height / 400, left: width / 50, right: width / 50),
-                padding: EdgeInsets.all(height / 100),
+                margin: EdgeInsets.only(top: height / 400),
+                padding: EdgeInsets.all(size.getWidthPx(2)),
                 alignment: Alignment.center,
-                height: height / 12,
+                height: size.getWidthPx(50),
                 decoration:  BoxDecoration(
                     color: Colors.grey.shade100,
                     border:  Border.all(color: focusBorderColor, width: 1.0),
                     borderRadius:  BorderRadius.circular(8.0)),
                 child:  TextFormField(
                   key: widget.key,
+                  style: TextStyle(fontFamily: 'Exo2'),
                   obscureText: widget.obscureText,
                   controller: widget.controller,
                   onSaved: widget.onSaved,
@@ -138,16 +138,15 @@ class _BoxFieldState extends State<BoxField> {
                       prefixIcon: Icon(
                         widget.icon,
                         color: widget.iconColor,
-                        size: height/ 34,
+                        size: size.getWidthPx(22),
                       ),
                       hintText: widget.hintText),
                 ),
               )),
         ],
       ),
-      padding: EdgeInsets.only(bottom : height / 58),
-      margin: EdgeInsets.only(
-          top: height / 50, right: width / 20, left: width / 30),
+      padding: EdgeInsets.only(bottom :size.getWidthPx(8)),
+      margin: EdgeInsets.only(top: size.getWidthPx(18), right: size.getWidthPx(8), left:size.getWidthPx(8)),
     );
   }
 }

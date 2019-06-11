@@ -9,15 +9,14 @@ class SignUpPage extends StatefulWidget {
 }
 
 class _SignUpPageState extends State<SignUpPage> {
-  TextEditingController _nameController = new TextEditingController();
-  TextEditingController _emailController = new TextEditingController();
-  TextEditingController _passwordController = new TextEditingController();
-  TextEditingController _confirmPasswordController =
-      new TextEditingController();
-  FocusNode _nameFocusNode = new FocusNode();
-  FocusNode _emailFocusNode = new FocusNode();
-  FocusNode _passFocusNode = new FocusNode();
-  FocusNode _confirmPassFocusNode = new FocusNode();
+  TextEditingController _nameController =  TextEditingController();
+  TextEditingController _emailController =  TextEditingController();
+  TextEditingController _passwordController =  TextEditingController();
+  TextEditingController _confirmPasswordController = TextEditingController();
+  FocusNode _nameFocusNode =  FocusNode();
+  FocusNode _emailFocusNode =  FocusNode();
+  FocusNode _passFocusNode =  FocusNode();
+  FocusNode _confirmPassFocusNode =  FocusNode();
   String _name, _email, _password, _confirmPassword;
   final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
 
@@ -29,35 +28,39 @@ class _SignUpPageState extends State<SignUpPage> {
 
     return Scaffold(
         backgroundColor: backgroundColor,
+        resizeToAvoidBottomInset: true,
         body: Stack(children: <Widget>[
-      CustomPaint(
-        child: Container(),
-        painter: BottomCurvePainter(),
-      ),
-      SafeArea(
-        top: true,
-        bottom: false,
+        ClipPath(
+        clipper: BottomShapeClipper(),
         child: Container(
-          margin: EdgeInsets.symmetric(
-              horizontal: size.getWidthPx(20), vertical: size.getWidthPx(20)),
-          child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: <Widget>[
-                Row(
-                  children: <Widget>[
-                    IconButton(
-                      icon: Icon(Icons.arrow_back,color: colorCurve,),
-                      onPressed: () => Navigator.pop(context, false),
-                    ),
-                    SizedBox(width: size.getWidthPx(10)),
-                    _signUpGradientText(),
-                  ],
-                ),
-                SizedBox(height: size.getWidthPx(10)),
-                _textAccount(),
-                SizedBox(height: size.getWidthPx(30)),
-                registerFields()
-              ]),
+          color: colorCurve,
+        )),
+          SingleChildScrollView(
+        child: SafeArea(
+          top: true,
+          bottom: false,
+          child: Container(
+            margin: EdgeInsets.symmetric(
+                horizontal: size.getWidthPx(20), vertical: size.getWidthPx(20)),
+            child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: <Widget>[
+                  Row(
+                    children: <Widget>[
+                      IconButton(
+                        icon: Icon(Icons.arrow_back,color: colorCurve,),
+                        onPressed: () => Navigator.pop(context, false),
+                      ),
+                      SizedBox(width: size.getWidthPx(10)),
+                      _signUpGradientText(),
+                    ],
+                  ),
+                  SizedBox(height: size.getWidthPx(10)),
+                  _textAccount(),
+                  SizedBox(height: size.getWidthPx(30)),
+                  registerFields()
+                ]),
+          ),
         ),
       )
     ]));
@@ -75,7 +78,7 @@ class _SignUpPageState extends State<SignUpPage> {
                 ..onTap = () => Navigator.pop(context),
             )
           ],
-          style: TextStyle(color: Colors.black87, fontSize: 16)),
+          style: TextStyle(fontFamily: 'Exo2',color: Colors.black87, fontSize: 16)),
     );
   }
 
@@ -85,7 +88,7 @@ class _SignUpPageState extends State<SignUpPage> {
           Color.fromRGBO(97, 6, 165, 1.0),
           Color.fromRGBO(45, 160, 240, 1.0)
         ]),
-        style: TextStyle(fontSize: 36, fontWeight: FontWeight.bold));
+        style: TextStyle(fontFamily: 'Exo2',fontSize: 36, fontWeight: FontWeight.bold));
   }
 
   BoxField _nameWidget() {
@@ -158,11 +161,11 @@ class _SignUpPageState extends State<SignUpPage> {
       child: RaisedButton(
         elevation: 8.0,
         shape: RoundedRectangleBorder(
-            borderRadius: new BorderRadius.circular(30.0)),
+            borderRadius:  BorderRadius.circular(30.0)),
         padding: EdgeInsets.all(size.getWidthPx(12)),
         child: Text(
           "Sign Up",
-          style: TextStyle(color: Colors.white, fontSize: 20.0),
+          style: TextStyle(fontFamily: 'Exo2',color: Colors.white, fontSize: 20.0),
         ),
         color: colorCurve,
         onPressed: () {

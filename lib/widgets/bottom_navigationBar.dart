@@ -22,7 +22,6 @@ class _BottomNavBarState extends State<BottomNavBar>
 
     return BottomNavigationBar(
       type: BottomNavigationBarType.fixed,
-      fixedColor: Colors.blue,
       iconSize: size.getWidthPx(24),
       currentIndex: tab,
       unselectedItemColor: Colors.black45,

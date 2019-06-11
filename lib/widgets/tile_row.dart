@@ -53,18 +53,17 @@ class TileRow extends StatelessWidget {
               key: key,
               color: backgroundColor,
               padding: EdgeInsets.only(right: size.getWidthPx(12),left: size.getWidthPx(2),bottom: size.getWidthPx(4),top: size.getWidthPx(4)),
-              margin: EdgeInsets.all(4),
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: <Widget>[
                   Expanded(
                     flex: 1,
                     child: Padding(
-                      padding: EdgeInsets.all(size.getWidthPx(10)),
+                      padding: EdgeInsets.all(size.getWidthPx(8)),
                       child: Text(label,
                           style: TextStyle(
                               fontFamily: 'Exo2',
-                              fontSize: 15.0,
+                              fontSize: 14.0,
                               color: disabled
                                   ? disabledTextColour
                                   : labelColor ?? textPrimaryDarkColor
@@ -89,6 +88,7 @@ class TileRow extends StatelessWidget {
                               child: Text(rowValue,
                                   overflow: TextOverflow.ellipsis,
                                   style: TextStyle(
+                                      fontFamily: 'Exo2',
                                       fontSize: 15.0,
                                       color: disabled
                                           ? disabledTextColour
@@ -120,7 +120,7 @@ class TileRow extends StatelessWidget {
               visibility: disableDivider != true
                   ? VisibilityFlag.visible
                   : VisibilityFlag.gone, // If last row remove divider
-              child: Divider(height: 0.0, indent: size.getWidthPx(10), color: dividerColor)
+              child: Divider(height: 1.0, indent: size.getWidthPx(2), color: dividerColor)
           )
         ],
       ),

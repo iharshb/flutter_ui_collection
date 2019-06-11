@@ -30,3 +30,31 @@ class BottomCurvePainter extends CustomPainter {
     return oldDelegate != this;
   }
 }
+
+class BottomShapeClipper extends CustomClipper<Path> {
+  @override
+  Path getClip(Size size) {
+    final Path path = Path();
+    path.moveTo(0.0, size.height / 1.75);
+
+    var firstControlPoint = Offset(10, size.height * .95);
+    var firstEndPoint = Offset(size.width / 2, size.height * .95);
+    path.quadraticBezierTo(firstControlPoint.dx, firstControlPoint.dy,
+        firstEndPoint.dx, firstEndPoint.dy);
+
+    var secondControlPoint = Offset(size.width / 1.25, size.height * .95);
+    var secondEndPoint = Offset(size.width - 20, size.height);
+    path.quadraticBezierTo(secondControlPoint.dx, secondControlPoint.dy,
+        secondEndPoint.dx, secondEndPoint.dy);
+
+    path.lineTo(size.width - 20, size.height);
+    path.lineTo(0, size.height);
+    path.close();
+    return path;
+  }
+
+  @override
+  bool shouldReclip(CustomClipper oldClipper) => true;
+
+
+}

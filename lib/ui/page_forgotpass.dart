@@ -19,42 +19,53 @@ class _PageForgotPasswordState extends State<PageForgotPassword> {
   Widget build(BuildContext context) {
     size = Screen(MediaQuery.of(context).size);
 
-    return SafeArea(
-      top: true,
-      child: Scaffold(
-          backgroundColor: backgroundColor,
-          body: Stack(children: <Widget>[
-            CustomPaint(
-              child: Container(),
-              painter: BottomCurvePainter(),
-            ),
-            Padding(
-              padding: EdgeInsets.only(top: size.getWidthPx(20)),
-              child: IconButton(
+    return Container(
+      color: backgroundColor,
+      child: SafeArea(
+        bottom: false,
+        top: true,
+        child: Scaffold(
+          appBar: AppBar(
+              elevation: 0.0,
+              primary: false,
+              centerTitle: true,
+             backgroundColor: Colors.transparent,
+              leading: IconButton(
                 icon: Icon(
                   Icons.arrow_back,
                   color: colorCurve,
                 ),
                 onPressed: () => Navigator.pop(context, false),
-              ),
-            ),
-            Container(
-                child: Center(
-              child: SingleChildScrollView(
-                child: Form(
-                  child: Column(
-                    mainAxisAlignment: MainAxisAlignment.spaceAround,
-                    children: <Widget>[
-                      _forgotGradientText(),
-                      SizedBox(height: size.getWidthPx(24)),
-                      Header(),
-                      _emailFeild(),
-                    ],
-                  ),
+              )
+          ),
+            backgroundColor: backgroundColor,
+            resizeToAvoidBottomInset: false,
+
+            body: Stack(children: <Widget>[
+              ClipPath(
+                  clipper: BottomShapeClipper(),
+                  child: Container(
+                    color: colorCurve,
+                  )),
+              Center(
+                child: SingleChildScrollView(
+              child: Form(
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.spaceAround,
+                  children: <Widget>[
+                    _forgotGradientText(),
+                    SizedBox(height: size.getWidthPx(24)),
+                    Header(),
+                    Padding(
+                        padding: EdgeInsets.symmetric(horizontal: size.getWidthPx(16)),
+                        child: _emailFeild())
+                  ],
                 ),
               ),
-            ))
-          ])),
+                ),
+              )
+            ])),
+      ),
     );
   }
 
@@ -65,7 +76,10 @@ class _PageForgotPasswordState extends State<PageForgotPassword> {
           SizedBox(height: size.getWidthPx(24)),
           Text(
             "Please fill your details below",
-            style: TextStyle(fontSize: 16.0, fontStyle: FontStyle.normal),
+            style: TextStyle(
+                fontFamily: 'Exo2',
+                fontSize: 16.0,
+                fontStyle: FontStyle.normal),
           ),
         ],
       );
@@ -76,7 +90,8 @@ class _PageForgotPasswordState extends State<PageForgotPassword> {
           Color.fromRGBO(97, 6, 165, 1.0),
           Color.fromRGBO(45, 160, 240, 1.0)
         ]),
-        style: TextStyle(fontSize: 30, fontWeight: FontWeight.bold));
+        style: TextStyle(
+            fontFamily: 'Exo2', fontSize: 30, fontWeight: FontWeight.bold));
   }
 
   CircleAvatar _passwordIconWidget() {
@@ -120,7 +135,8 @@ class _PageForgotPasswordState extends State<PageForgotPassword> {
         padding: EdgeInsets.all(size.getWidthPx(12)),
         child: Text(
           "Submit",
-          style: TextStyle(color: Colors.white, fontSize: 20.0),
+          style: TextStyle(
+              fontFamily: 'Exo2', color: Colors.white, fontSize: 20.0),
         ),
         color: colorCurve,
         onPressed: () {

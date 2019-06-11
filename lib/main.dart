@@ -1,19 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'page_splash.dart';
-import 'ui/page_dashboard.dart';
+import 'ui/page_home.dart';
 import 'ui/page_login.dart';
 import 'ui/page_onboarding.dart';
 import 'ui/page_settings.dart';
 import 'utils/utils.dart';
+import 'widgets/carousol.dart';
 void main() {
-
-  SystemChrome.setSystemUIOverlayStyle(SystemUiOverlayStyle(
-    systemNavigationBarColor: backgroundColor, // navigation bar color
-    statusBarColor: backgroundColor, // status bar color
-  ));
-
-  SystemChrome.setEnabledSystemUIOverlays([SystemUiOverlay.bottom]);
 
 
   runApp(MyApp());
@@ -45,9 +39,40 @@ class CollectionApp extends StatelessWidget {
         theme: ThemeData(
           primaryColor: Theme.of(context).primaryColor,
         ),
-        home: SettingPage()
+        home: HomePage()
     );
   }
+}
+
+
+class TestScreen extends StatefulWidget {
+  @override
+  _TestScreenState createState() => _TestScreenState();
+}
+
+class _TestScreenState extends State<TestScreen> {
+  @override
+  Widget build(BuildContext context) {
+
+
+
+
+
+    return Scaffold(
+      appBar: AppBar(title: Text("Title"),),
+      body: Container(
+        height: 400,
+        child: Carroussel(),
+      ),
+    );
+
+
+
+  }
+
+
+
+
 }
 
 

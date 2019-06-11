@@ -1,5 +1,6 @@
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_ui_collections/utils/utils.dart';
 import 'package:flutter_ui_collections/widgets/widgets.dart';
 
@@ -28,37 +29,50 @@ class _LoginPageState extends State<LoginPage> {
         .size);
 
     return Scaffold(
-        resizeToAvoidBottomInset: true,
         backgroundColor: backgroundColor,
-        body: SafeArea(
-          top: true,
-          bottom: false,
-          child: Stack(
-              fit: StackFit.expand,
-              children: <Widget>[
+        resizeToAvoidBottomInset: true,
+        body: AnnotatedRegion(
+          value: SystemUiOverlayStyle(
+            systemNavigationBarDividerColor: Colors.blue,
+              statusBarColor: backgroundColor,
+              statusBarBrightness: Brightness.dark,
+              statusBarIconBrightness: Brightness.dark,
+              systemNavigationBarIconBrightness: Brightness.dark,
+              systemNavigationBarColor: Colors.transparent),
+          child: Container(
+            color: Colors.white,
+            child: SafeArea(
+              top: true,
+              bottom: false,
+              child: Stack(
+                  fit: StackFit.expand,
+                  children: <Widget>[
 
-            CustomPaint(
-              child: Container(),
-              painter: BottomCurvePainter(),
-            ),
-            SingleChildScrollView(
+
+              ClipPath(
+              clipper: BottomShapeClipper(),
               child: Container(
-                margin: EdgeInsets.symmetric(horizontal: size.getWidthPx(20),
-                    vertical: size.getWidthPx(20)),
-                child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: <Widget>[
+                  color: colorCurve,
+                  )),
+                    SingleChildScrollView(
+                  child: Container(
+                    margin: EdgeInsets.symmetric(horizontal: size.getWidthPx(20),
+                        vertical: size.getWidthPx(20)),
+                    child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: <Widget>[
 
-                      _loginGradientText(),
-                      SizedBox(height: size.getWidthPx(10)),
-                      _textAccount(),
-                      SizedBox(height: size.getWidthPx(30)),
-                      loginFields()
-
-                    ]),
-              ),
-            )
-          ]),
+                          _loginGradientText(),
+                          SizedBox(height: size.getWidthPx(10)),
+                          _textAccount(),
+                          SizedBox(height: size.getWidthPx(30)),
+                          loginFields()
+                        ]),
+                  ),
+                )
+              ]),
+            ),
+          ),
         ));
   }
 
@@ -74,7 +88,7 @@ class _LoginPageState extends State<LoginPage> {
                 ..onTap = () =>  Navigator.push(context, MaterialPageRoute(builder: (context) => SignUpPage())),
             )
           ],
-          style: TextStyle(color: Colors.black87, fontSize: 16)),
+          style: TextStyle(color: Colors.black87, fontSize: 14, fontFamily: 'Exo2')),
     );
   }
 
@@ -84,7 +98,7 @@ class _LoginPageState extends State<LoginPage> {
           Color.fromRGBO(97, 6, 165, 1.0),
           Color.fromRGBO(45, 160, 240, 1.0)
         ]),
-        style: TextStyle(fontSize: 36, fontWeight: FontWeight.bold));
+        style: TextStyle(fontFamily: 'Exo2',fontSize: 36, fontWeight: FontWeight.bold));
   }
 
   BoxField _emailWidget() {
@@ -130,7 +144,7 @@ class _LoginPageState extends State<LoginPage> {
         padding: EdgeInsets.all(size.getWidthPx(12)),
         child: Text(
           "LOGIN",
-          style: TextStyle(color: Colors.white, fontSize: 20.0),
+          style: TextStyle(fontFamily: 'Exo2',color: Colors.white, fontSize: 20.0),
         ),
         color: colorCurve,
         onPressed: () {
@@ -158,7 +172,8 @@ class _LoginPageState extends State<LoginPage> {
     return GestureDetector(
       onTap: onTap,
       child: CircleAvatar(
-        maxRadius: size.getWidthPx(20),
+
+        maxRadius: size.getWidthPx(24),
         backgroundColor: Colors.transparent,
         child: Image.asset(assetIcon),
       ),
@@ -188,13 +203,13 @@ class _LoginPageState extends State<LoginPage> {
                       child: Align(
                           alignment: Alignment.centerRight,
                           child: Text("Forgot Password?",
-                              style: TextStyle(fontSize: 16.0))),
+                              style: TextStyle(fontFamily: 'Exo2',fontSize: 16.0))),
                     )),
                 SizedBox(height: size.getWidthPx(8)),
                 _loginButtonWidget(),
                 SizedBox(height: size.getWidthPx(28)),
 
-                Text("Or Login with", style: TextStyle(fontSize: 16.0, color: Colors.grey),
+                Text("Or Login with", style: TextStyle(fontFamily: 'Exo2',fontSize: 16.0, color: Colors.grey),
                 ),
                 SizedBox(height: size.getWidthPx(12)),
                 _socialButtons()
