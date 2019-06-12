@@ -84,12 +84,12 @@ class _SearchPageState extends State<SearchPage> {
   Card upperBoxCard() {
     return Card(
         elevation: 4.0,
-        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(4)),
+        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(8)),
         margin: EdgeInsets.symmetric(
-            horizontal: size.getWidthPx(8), vertical: size.getWidthPx(16)),
+            horizontal: size.getWidthPx(20), vertical: size.getWidthPx(16)),
         borderOnForeground: true,
         child: Container(
-          height: size.getWidthPx(150),
+          height: size.getWidthPx(130),
           child: Column(
             children: <Widget>[
               _searchWidget(),
@@ -159,9 +159,10 @@ class _SearchPageState extends State<SearchPage> {
                     child: Image.asset('assets/$assetImageName',
                         fit: BoxFit.fill)),
                 SizedBox(height: size.getWidthPx(8)),
-                leftTitleText(text: titleText,leftPadding: size.getWidthPx(8),textColor: colorCurve,fontSize: 16.0),
+                leftTitleText(text: titleText,leftPadding: size.getWidthPx(8),textColor: colorCurve,fontSize: 14.0),
                 leftTitleText(text: subTitle,leftPadding: size.getWidthPx(8),textColor: Colors.black54,fontSize: 12.0),
-                leftTitleText(text: priceText,leftPadding: size.getWidthPx(8),textColor: colorCurve,fontSize: 16.0,fontWeight: FontWeight.w800),
+                SizedBox(height: size.getWidthPx(8)),
+                leftTitleText(text: priceText,leftPadding: size.getWidthPx(8),textColor: colorCurve,fontSize: 14.0,fontWeight: FontWeight.w800),
               ],
             )));
   }
