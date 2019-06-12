@@ -120,7 +120,7 @@ class _BoxFieldState extends State<BoxField> {
                 margin: EdgeInsets.only(top: height / 400),
                 padding: EdgeInsets.all(size.getWidthPx(2)),
                 alignment: Alignment.center,
-                height: size.getWidthPx(50),
+                height: size.getWidthPx(40),
                 decoration:  BoxDecoration(
                     color: Colors.grey.shade100,
                     border:  Border.all(color: focusBorderColor, width: 1.0),
@@ -146,7 +146,7 @@ class _BoxFieldState extends State<BoxField> {
         ],
       ),
       padding: EdgeInsets.only(bottom :size.getWidthPx(8)),
-      margin: EdgeInsets.only(top: size.getWidthPx(18), right: size.getWidthPx(8), left:size.getWidthPx(8)),
+      margin: EdgeInsets.only(top: size.getWidthPx(8), right: size.getWidthPx(8), left:size.getWidthPx(8)),
     );
   }
 }

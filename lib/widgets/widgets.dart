@@ -4,3 +4,4 @@ export './boxfield.dart';
 export './bottom_curve_painter.dart';
 export './visibility.dart';
 export './tile_row.dart';
+export './upper_curve_clipper.dart';

@@ -3,6 +3,7 @@ import 'package:flutter_ui_collections/widgets/bottom_navigationBar.dart';
 
 import '../main.dart';
 import 'page_login.dart';
+import 'page_search.dart';
 import 'page_settings.dart';
 import 'page_signup.dart';
 
@@ -51,7 +52,7 @@ class _HomePageState extends State<HomePage>
     //Current Tabs in Home Screen
     switch (currentTab) {
       case 0:
-        tabView = [SettingPage()];
+        tabView = [SearchPage()];
         break;
       case 1:
         tabView = [SignUpPage()];
