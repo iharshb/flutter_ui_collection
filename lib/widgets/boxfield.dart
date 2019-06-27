@@ -24,6 +24,7 @@ class BoxField extends StatefulWidget {
   final bool enabled;
   final IconData icon;
   final Color iconColor;
+  final Color focusBorderColor;
   final String hintText;
   final String lableText;
   final double cursorWidth;
@@ -66,6 +67,7 @@ class BoxField extends StatefulWidget {
     this.cursorWidth = 2.0,
     this.cursorRadius,
     this.cursorColor,
+    this.focusBorderColor,
     this.keyboardAppearance,
     this.scrollPadding,
     this.validator,
@@ -118,12 +120,12 @@ class _BoxFieldState extends State<BoxField> {
           Expanded(
               child: Container(
                 margin: EdgeInsets.only(top: height / 400),
-                padding: EdgeInsets.all(size.getWidthPx(2)),
+                padding: EdgeInsets.all(size.getWidthPx(0)),
                 alignment: Alignment.center,
                 height: size.getWidthPx(40),
                 decoration:  BoxDecoration(
                     color: Colors.grey.shade100,
-                    border:  Border.all(color: focusBorderColor, width: 1.0),
+                    border:  Border.all(color: widget.focusBorderColor??Colors.grey.shade400, width: 1.0),
                     borderRadius:  BorderRadius.circular(8.0)),
                 child:  TextFormField(
                   key: widget.key,

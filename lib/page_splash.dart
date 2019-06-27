@@ -1,10 +1,10 @@
 import 'dart:async';
 import 'package:flutter/material.dart';
 import 'LocalBindings.dart';
+import 'ui/page_home.dart';
 import 'ui/page_login.dart';
 import 'ui/page_onboarding.dart';
 import 'utils/Constants.dart';
-import 'package:flare_flutter/flare_actor.dart';
 
 class SplashScreen extends StatefulWidget {
   @override
@@ -15,9 +15,9 @@ class _SplashScreenState extends State<SplashScreen> {
   @override
   void initState() {
     super.initState();
-    /*Timer(Duration(seconds: 2), () {
+    Timer(Duration(seconds: 2), () {
        navigateFromSplash();
-    });*/
+    });
   }
 
   @override
@@ -27,11 +27,6 @@ class _SplashScreenState extends State<SplashScreen> {
         child: Container(
           width: 300.0,
           height: 300.0,
-          child: FlareActor(
-              "assets/success_message.flr",
-             fit: BoxFit.contain,
-            animation: "Untitled",
-            ),
         ),
         )
     );
@@ -46,9 +41,9 @@ class _SplashScreenState extends State<SplashScreen> {
         Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => OnBoardingPage()));
       }else{
         bool isLoggedIn = await LocalStorage.sharedInstance.readValue(Constants.isLoggedIn);
-        //Navigate to DashBoard (If user already logged In) OR Login screen.
+        //Navigate to Home screen (If user already logged In) OR Login screen.
         if(isLoggedIn){
-          Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => LoginPage()));
+          Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => HomePage()));
         }else{
           Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => LoginPage()));
         }

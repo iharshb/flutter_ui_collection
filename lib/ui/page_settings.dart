@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_ui_collections/utils/utils.dart';
-import 'package:flutter_ui_collections/widgets/setting_section.dart';
-import 'package:flutter_ui_collections/widgets/switch_row.dart';
 import 'package:flutter_ui_collections/widgets/widgets.dart';
 
 class SettingPage extends StatefulWidget {
@@ -12,17 +10,14 @@ class SettingPage extends StatefulWidget {
 
 class _SettingPageState extends State<SettingPage> {
   bool isLocalNotification = false;
-  bool isPushNotification = false;
-  bool isPrivateAccount = false;
+  bool isPushNotification = true;
+  bool isPrivateAccount = true;
 
   @override
   void initState() {
     // TODO: implement initState
     super.initState();
-    SystemChrome.setSystemUIOverlayStyle(SystemUiOverlayStyle(
-      systemNavigationBarColor:
-          Colors.grey.shade400, // navigation bar color// status bar color
-    ));
+
   }
 
   @override
@@ -38,9 +33,9 @@ class _SettingPageState extends State<SettingPage> {
       body: AnnotatedRegion(
         value: SystemUiOverlayStyle(
             statusBarColor: backgroundColor,
-            statusBarBrightness: Brightness.dark,
-            statusBarIconBrightness: Brightness.dark,
-            systemNavigationBarIconBrightness: Brightness.dark,
+            statusBarBrightness: Brightness.light,
+            statusBarIconBrightness: Brightness.light,
+            systemNavigationBarIconBrightness: Brightness.light,
             systemNavigationBarColor: backgroundColor),
         child: Container(
           color: backgroundColor,

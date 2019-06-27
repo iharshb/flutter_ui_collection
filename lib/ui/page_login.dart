@@ -5,6 +5,7 @@ import 'package:flutter_ui_collections/utils/utils.dart';
 import 'package:flutter_ui_collections/widgets/widgets.dart';
 
 import 'page_forgotpass.dart';
+import 'page_home.dart';
 import 'page_signup.dart';
 
 class LoginPage extends StatefulWidget {
@@ -33,12 +34,12 @@ class _LoginPageState extends State<LoginPage> {
         resizeToAvoidBottomInset: true,
         body: AnnotatedRegion(
           value: SystemUiOverlayStyle(
-            systemNavigationBarDividerColor: Colors.blue,
               statusBarColor: backgroundColor,
-              statusBarBrightness: Brightness.dark,
+              statusBarBrightness: Brightness.light,
               statusBarIconBrightness: Brightness.dark,
-              systemNavigationBarIconBrightness: Brightness.dark,
-              systemNavigationBarColor: Colors.transparent),
+              systemNavigationBarIconBrightness: Brightness.light,
+              systemNavigationBarColor: backgroundColor),
+
           child: Container(
             color: Colors.white,
             child: SafeArea(
@@ -149,6 +150,7 @@ class _LoginPageState extends State<LoginPage> {
         color: colorCurve,
         onPressed: () {
           // Going to DashBoard
+          Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => HomePage()));
         },
       ),
     );

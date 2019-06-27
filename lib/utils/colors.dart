@@ -11,6 +11,7 @@ Color textPrimaryColor =Colors.black87;
 Color textPrimaryLightColor = Colors.white;
 Color textPrimaryDarkColor = Colors.black;
 Color textSecondaryLightColor = Colors.black87;
+Color textSecondary54 = Colors.black54;
 Color textSecondaryDarkColor = Colors.blue;
 Color hintTextColor = Colors.white30;
 Color bucketDialogueUserColor = Colors.red;

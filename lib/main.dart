@@ -39,7 +39,7 @@ class CollectionApp extends StatelessWidget {
         theme: ThemeData(
           primaryColor: Theme.of(context).primaryColor,
         ),
-        home: HomePage()
+        home: SplashScreen()
     );
   }
 }
