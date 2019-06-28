@@ -4,7 +4,6 @@ import 'package:flutter_ui_collections/ui/photo_list.dart';
 import 'package:flutter_ui_collections/utils/utils.dart';
 import 'package:flutter_ui_collections/widgets/utils_widget.dart';
 import 'package:flutter_ui_collections/widgets/widgets.dart';
-import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
 
 class ProfilePage extends StatefulWidget {
   @override

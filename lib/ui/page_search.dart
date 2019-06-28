@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:flutter_ui_collections/model/models.dart';
 import 'package:flutter_ui_collections/utils/utils.dart';
 import 'package:flutter_ui_collections/widgets/widgets.dart';
 
@@ -12,19 +13,44 @@ class _SearchPageState extends State<SearchPage> {
   Screen size;
   int _selectedIndex = 1;
 
+  List<Property> premiumList =  List();
+  List<Property> featuredList =  List();
+  var citiesList = ["Ahmedabad", "Mumbai", "Delhi ", "Chennai","Goa","Kolkata","Indore","Jaipur"];
+
+  @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+
+    premiumList
+    ..add(Property(propertyName:"Omkar Lotus", propertyLocation:"Ahmedabad ", image:"feature_1.jpg", propertyPrice:"26.5 Cr"))
+    ..add(Property(propertyName:"Sandesh Heights", propertyLocation:"Baroda ", image:"feature_2.jpg", propertyPrice:"11.5 Cr"))
+    ..add(Property(propertyName:"Sangath Heights", propertyLocation:"Pune ", image:"feature_3.jpg", propertyPrice:"19.0 Cr"))
+    ..add(Property(propertyName:"Adani HighRise", propertyLocation:"Mumbai ", image:"hall_1.jpg", propertyPrice:"22.5 Cr"))
+    ..add(Property(propertyName:"N.G Tower", propertyLocation:"Gandhinagar ", image:"hall_2.jpeg", propertyPrice:"7.5 Cr"))
+    ..add(Property(propertyName:"Vishwas CityRise", propertyLocation:"Pune ", image:"hall_1.jpg", propertyPrice:"17.5 Cr"))
+    ..add(Property(propertyName:"Gift City", propertyLocation:"Ahmedabad ", image:"hall_2.jpeg", propertyPrice:"13.5 Cr"))
+    ..add(Property(propertyName:"Velone City", propertyLocation:"Mumbai ", image:"feature_1.jpg", propertyPrice:"11.5 Cr"))
+    ..add(Property(propertyName:"PabelBay", propertyLocation:"Ahmedabad ", image:"hall_1.jpg", propertyPrice:"33.1 Cr"))
+    ..add(Property(propertyName:"Sapath Hexa Tower", propertyLocation:"Ahmedabad", image:"feature_3.jpg", propertyPrice:"15.6 Cr"));
+
+
+
+  }
+
   @override
   Widget build(BuildContext context) {
     size = Screen(MediaQuery.of(context).size);
 
     return Scaffold(
       backgroundColor: backgroundColor,
-        body: AnnotatedRegion(
+      body: AnnotatedRegion(
         value: SystemUiOverlayStyle(
-        statusBarColor: backgroundColor,
-        statusBarBrightness: Brightness.dark,
-        statusBarIconBrightness: Brightness.dark,
-        systemNavigationBarIconBrightness: Brightness.dark,
-        systemNavigationBarColor: backgroundColor),
+            statusBarColor: backgroundColor,
+            statusBarBrightness: Brightness.dark,
+            statusBarIconBrightness: Brightness.dark,
+            systemNavigationBarIconBrightness: Brightness.dark,
+            systemNavigationBarColor: backgroundColor),
         child: Container(
           child: SingleChildScrollView(
             child: Column(
@@ -62,30 +88,29 @@ class _SearchPageState extends State<SearchPage> {
                 ],
               ),
             ),
-            leftAlignText(text: "Premium properties",leftPadding: size.getWidthPx(16),textColor: textPrimaryColor,fontSize: 16.0),
+            leftAlignText(
+                text: "Premium properties",
+                leftPadding: size.getWidthPx(16),
+                textColor: textPrimaryColor,
+                fontSize: 16.0),
             HorizontalList(
               children: <Widget>[
-                propertyCard("Omkar Lotus","Ahmedabad ", "hall_1.jpg","26.5 Cr"),
-                propertyCard("Sandesh Heights","Baroda ", "hall_2.jpeg","11.5 Cr"),
-                propertyCard("Sangath Heights","Pune ", "hall_2.jpeg","19.0 Cr"),
-                propertyCard("Adani HighRise","Mumbai ", "hall_1.jpg","22.5 Cr"),
-                propertyCard("N.G Tower","Gandhinagar ", "hall_2.jpeg","7.2 Cr"),
-
+                for (int i = 0; i < premiumList.length; i++)
+                  propertyCard(premiumList[i])
               ],
             ),
-
-            leftAlignText(text: "Featured properties",leftPadding: size.getWidthPx(16),textColor: textPrimaryColor,fontSize: 16.0),
+            leftAlignText(
+                text: "Featured properties",
+                leftPadding: size.getWidthPx(16),
+                textColor: textPrimaryColor,
+                fontSize: 16.0),
             HorizontalList(
               children: <Widget>[
-                propertyCard("Omkar Lotus","Ahmedabad ", "feature_1.jpg","11.5 Cr"),
-                propertyCard("Sandesh Heights","Baroda ", "feature_2.jpg","5.5 Cr"),
-                propertyCard("Sangath Heights","Pune ", "feature_3.jpg","12.0 Cr"),
-                propertyCard("Adani HighRise","Mumbai ", "feature_1.jpg","55.5 Cr"),
-                propertyCard("N.G Tower","Gandhinagar ", "feature_2.jpg","1.2 Cr"),
+                for (int i = 0; i < premiumList.length; i++)
+                  propertyCard(premiumList.reversed.toList()[i])
+
               ],
             )
-
-
           ],
         ),
       ],
@@ -113,18 +138,15 @@ class _SearchPageState extends State<SearchPage> {
           child: Column(
             children: <Widget>[
               _searchWidget(),
-              leftAlignText(text: "Top Cities :",leftPadding: size.getWidthPx(16),textColor: textPrimaryColor,fontSize: 16.0),
-
+              leftAlignText(
+                  text: "Top Cities :",
+                  leftPadding: size.getWidthPx(16),
+                  textColor: textPrimaryColor,
+                  fontSize: 16.0),
               HorizontalList(
                 children: <Widget>[
-                  buildChoiceChip(1, "Ahmedabad"),
-                  buildChoiceChip(2, "Mumbai"),
-                  buildChoiceChip(3, "Delhi "),
-                  buildChoiceChip(4, "Chennai"),
-                  buildChoiceChip(5, "Goa"),
-                  buildChoiceChip(6, "Kolkata"),
-                  buildChoiceChip(7, "Indore"),
-                  buildChoiceChip(8, "Jaipur"),
+                  for(int i=0;i<citiesList.length;i++)
+                    buildChoiceChip(i, citiesList[i])
                 ],
               ),
             ],
@@ -144,23 +166,23 @@ class _SearchPageState extends State<SearchPage> {
         iconColor: colorCurve);
   }
 
-  Padding leftAlignText({text,leftPadding, textColor,fontSize,fontWeight}) {
+  Padding leftAlignText({text, leftPadding, textColor, fontSize, fontWeight}) {
     return Padding(
       padding: EdgeInsets.only(left: leftPadding),
       child: Align(
         alignment: Alignment.centerLeft,
-        child: Text(text,
+        child: Text(text??"",
             textAlign: TextAlign.left,
             style: TextStyle(
                 fontFamily: 'Exo2',
                 fontSize: fontSize,
-                fontWeight: fontWeight??FontWeight.w500,
+                fontWeight: fontWeight ?? FontWeight.w500,
                 color: textColor)),
       ),
     );
   }
 
-  Card propertyCard(titleText, subTitle, assetImageName,priceText) {
+  Card propertyCard(Property property) {
     return Card(
         elevation: 4.0,
         margin: EdgeInsets.all(8),
@@ -176,13 +198,26 @@ class _SearchPageState extends State<SearchPage> {
                     borderRadius: BorderRadius.only(
                         topLeft: Radius.circular(12.0),
                         topRight: Radius.circular(12.0)),
-                    child: Image.asset('assets/$assetImageName',
+                    child: Image.asset('assets/${property.image}',
                         fit: BoxFit.fill)),
                 SizedBox(height: size.getWidthPx(8)),
-                leftAlignText(text: titleText,leftPadding: size.getWidthPx(8),textColor: colorCurve,fontSize: 14.0),
-                leftAlignText(text: subTitle,leftPadding: size.getWidthPx(8),textColor: Colors.black54,fontSize: 12.0),
+                leftAlignText(
+                    text: property.propertyName,
+                    leftPadding: size.getWidthPx(8),
+                    textColor: colorCurve,
+                    fontSize: 14.0),
+                leftAlignText(
+                    text: property.propertyLocation,
+                    leftPadding: size.getWidthPx(8),
+                    textColor: Colors.black54,
+                    fontSize: 12.0),
                 SizedBox(height: size.getWidthPx(4)),
-                leftAlignText(text: priceText,leftPadding: size.getWidthPx(8),textColor: colorCurve,fontSize: 14.0,fontWeight: FontWeight.w800),
+                leftAlignText(
+                    text: property.propertyPrice,
+                    leftPadding: size.getWidthPx(8),
+                    textColor: colorCurve,
+                    fontSize: 14.0,
+                    fontWeight: FontWeight.w800),
               ],
             )));
   }

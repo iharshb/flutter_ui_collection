@@ -13,7 +13,6 @@ class _PhotosListState extends State<PhotosList> implements ApiListener {
   bool isLoading = true;
   bool internetCheck = true;
   List<PhotoResponse> photoList= new List();
-
   Screen size;
 
   @override
@@ -25,9 +24,7 @@ class _PhotosListState extends State<PhotosList> implements ApiListener {
   @override
   Widget build(BuildContext context) {
     size = Screen(MediaQuery.of(context).size);
-
     return staggeredBody();
-
   }
 
   Padding staggeredBody() {
@@ -35,7 +32,6 @@ class _PhotosListState extends State<PhotosList> implements ApiListener {
       padding: EdgeInsets.symmetric(horizontal:size.getWidthPx(8)),
       child: StaggeredGridView.countBuilder(
         crossAxisCount: 3,
-        addAutomaticKeepAlives: true,
         physics: BouncingScrollPhysics(),
         shrinkWrap: true,
         itemCount: photoList.length,
@@ -59,7 +55,6 @@ class _PhotosListState extends State<PhotosList> implements ApiListener {
 
   @override
   void onApiFailure(Exception exception) {
-    setLoading(false);
     Utils.showAlert(context, "Photos", "Something went wrong.", () {
       Navigator.pop(context);
     }, true);
@@ -67,7 +62,6 @@ class _PhotosListState extends State<PhotosList> implements ApiListener {
 
   @override
   void onApiSuccess(Object mObject) {
-    setLoading(false);
     //Get All Users
     if (mObject is List<PhotoResponse>) {
       photoList.addAll(mObject);
@@ -76,13 +70,8 @@ class _PhotosListState extends State<PhotosList> implements ApiListener {
 
   @override
   void onNoInternetConnection() {
-    setLoading(false);
+
   }
 
-  //Progress Indicator On/Off
-  void setLoading(bool loading) {
-    setState(() {
-      isLoading = loading;
-    });
-  }
+
 }
