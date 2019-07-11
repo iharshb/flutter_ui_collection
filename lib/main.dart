@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'page_splash.dart';
+import 'package:flutter_ui_collections/ui/page_splash.dart';
 import 'ui/page_home.dart';
 import 'ui/page_login.dart';
 import 'ui/page_onboarding.dart';
@@ -23,6 +23,7 @@ class MyApp extends StatelessWidget {
         primarySwatch: Colors.blue,
       ),
       home: CollectionApp(),
+
     );
   }
 }
@@ -45,34 +46,6 @@ class CollectionApp extends StatelessWidget {
 }
 
 
-class TestScreen extends StatefulWidget {
-  @override
-  _TestScreenState createState() => _TestScreenState();
-}
 
-class _TestScreenState extends State<TestScreen> {
-  @override
-  Widget build(BuildContext context) {
-
-
-
-
-
-    return Scaffold(
-      appBar: AppBar(title: Text("Title"),),
-      body: Container(
-        height: 400,
-        child: Carroussel(),
-      ),
-    );
-
-
-
-  }
-
-
-
-
-}
 
 

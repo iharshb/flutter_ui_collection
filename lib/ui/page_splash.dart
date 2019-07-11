@@ -1,10 +1,12 @@
 import 'dart:async';
 import 'package:flutter/material.dart';
-import 'LocalBindings.dart';
-import 'ui/page_home.dart';
-import 'ui/page_login.dart';
-import 'ui/page_onboarding.dart';
-import 'utils/Constants.dart';
+import 'package:flutter_ui_collections/utils/utils.dart';
+
+import '../LocalBindings.dart';
+import 'page_home.dart';
+import 'page_login.dart';
+import 'page_onboarding.dart';
+
 
 class SplashScreen extends StatefulWidget {
   @override
@@ -12,6 +14,8 @@ class SplashScreen extends StatefulWidget {
 }
 
 class _SplashScreenState extends State<SplashScreen> {
+  Screen size;
+
   @override
   void initState() {
     super.initState();
@@ -22,20 +26,20 @@ class _SplashScreenState extends State<SplashScreen> {
 
   @override
   Widget build(BuildContext context) {
+     size = Screen(MediaQuery.of(context).size);
     return Scaffold(
         body: Center(
         child: Container(
-          width: 300.0,
-          height: 300.0,
-        ),
-        )
+          width: size.getWidthPx(300),
+          height: size.getWidthPx(300),
+          child: Image.asset("assets/icons/logo_splash.png")))
     );
   }
 
   Future navigateFromSplash () async {
 
     String isOnBoard = await LocalStorage.sharedInstance.readValue(Constants.isOnBoard);
-
+      print("isOnBoard  $isOnBoard");
       if(isOnBoard ==null || isOnBoard == "0"){
         //Navigate to OnBoarding Screen.
         Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => OnBoardingPage()));
