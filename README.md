@@ -2,13 +2,13 @@
 
 
 ## Screenshots
-|  Onboarding | Login | Sign Up | Forgot Password
+| Splash | Onboarding | Login | Sign Up
 |-----------------------------------------------------------------------------------------------------------------------------|-------------------------------------------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------------------------------|--------------------------------------------------------------------------------------------------------------------------------
-|<img src="screenshots/onboarding.gif" height="400em" /> | <img src="screenshots/page_login.jpg" height="400em" />| <img src="screenshots/page_signup.jpg" height="400em" />|<img src="screenshots/page_forgot_password.jpg" height="400em" />
+|<img src="screenshots/page_splash.jpg" height="400em" /> | <img src="screenshots/onboarding.gif" height="400em" /> | <img src="screenshots/page_login.jpg" height="400em" /> | <img src="screenshots/page_signup.jpg" height="400em"/>
 
-|  Dashboard | Search | Profile | Setting
+| Forgot Password | Dashboard | Profile | Setting
 |-----------------------------------------------------------------------------------------------------------------------------|-------------------------------------------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------------------------------|--------------------------------------------------------------------------------------------------------------------------------
-|<img src="screenshots/page_dashboard.jpg" height="400em" /> | <img src="screenshots/page_dashboard.jpg" height="400em" />| <img src="screenshots/page_profile.jpg" height="400em" />|<img src="screenshots/page_settings.jpg" height="400em" />
+|<img src="screenshots/page_forgot_password.jpg" height="400em" /> |<img src="screenshots/page_dashboard.jpg" height="400em" /> | <img src="screenshots/page_profile.jpg" height="400em" />|<img src="screenshots/page_settings.jpg" height="400em" />
 
 
 
