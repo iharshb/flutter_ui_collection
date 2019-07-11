@@ -101,7 +101,7 @@ class _OnBoardingPageState extends State<OnBoardingPage> {
                     ? () async{
                   // Last Page Done Click
 
-                  LocalStorage.sharedInstance.writeValue(key:Constants.isOnBoard,value: "0");
+                  LocalStorage.sharedInstance.writeValue(key:Constants.isOnBoard,value: "1");
 
                   Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => LoginPage()));
 

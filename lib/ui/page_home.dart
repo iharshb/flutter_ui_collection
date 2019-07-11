@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_ui_collections/widgets/bottom_navigationBar.dart';
 
 import '../main.dart';
+import 'page_coming_soon.dart';
 import 'page_login.dart';
 import 'page_profile.dart';
 import 'page_search.dart';
@@ -52,7 +53,7 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
         break;
       case 1:
         //Search Page
-        tabView = [SignUpPage()];
+        tabView = [PageComingSoon()];
         break;
       case 2:
         //Profile Page

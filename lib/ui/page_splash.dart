@@ -44,13 +44,7 @@ class _SplashScreenState extends State<SplashScreen> {
         //Navigate to OnBoarding Screen.
         Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => OnBoardingPage()));
       }else{
-        bool isLoggedIn = await LocalStorage.sharedInstance.readValue(Constants.isLoggedIn);
-        //Navigate to Home screen (If user already logged In) OR Login screen.
-        if(isLoggedIn){
-          Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => HomePage()));
-        }else{
-          Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => LoginPage()));
-        }
+        Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => LoginPage()));
       }
   }
 }

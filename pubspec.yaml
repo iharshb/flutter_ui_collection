@@ -52,6 +52,7 @@ flutter:
     - assets/icn_twitter.png
     - assets/imgforgot.png
     - assets/logo_splash.png
+    - assets/icn_coming_soon.png
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware.
